@@ -10,8 +10,6 @@ from io import BytesIO
 import argparse
 import gnupg
 import yaml
-from pprint import pprint
-from inspect import getmembers
 
 parser = argparse.ArgumentParser(add_help=True)
 
@@ -57,8 +55,6 @@ gpg = gnupg.GPG()
 
 decrypted_data = gpg.decrypt(raw_data, passphrase=password)
 
-# pprint(getmembers(data))
-
 if decrypted_data.ok == False:
     sys.stderr.write("Error in data decription. Message: " +
                      decrypted_data.stderr)
@@ -70,8 +66,6 @@ env_data = yaml.safe_load(decrypted_data.data)
 
 str_list = []
 for var in env_data["vars"]:
-    # string = '"' + var["name"] + '"' + " " + '"' + var["value"] + '"'
-    # string = var["name"] + "," + var["value"]
     string = "export " + '"' + var["name"] + '"="' + var["value"] + '"; '
     str_list.append(string)
 
