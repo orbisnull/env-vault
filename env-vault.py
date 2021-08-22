@@ -28,8 +28,10 @@ password = args.password
 b_obj = BytesIO()
 
 crl = pycurl.Curl()
-# Set URL value
 
+crl.setopt(pycurl.FOLLOWLOCATION, 1)
+
+# Set URL value
 crl.setopt(crl.URL, url)
 
 # Write bytes that are utf-8 encoded
@@ -66,7 +68,7 @@ env_data = yaml.safe_load(decrypted_data.data)
 
 str_list = []
 for var in env_data["vars"]:
-    string = "export " + '"' + var["name"] + '"="' + var["value"] + '"; '
+    string = "export " + var["name"] + '="' + var["value"] + '"; '
     str_list.append(string)
 
 print(' '.join(str_list))
