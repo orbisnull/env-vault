@@ -15,4 +15,6 @@ chmod +x /opt/env-vault/env-vault.py
 
 ln -sf /opt/env-vault/env-load.sh /usr/local/bin/env-load.sh
 
+echo "env-vault: Installation completed"
+
 exit 0
