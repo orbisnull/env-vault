@@ -16,7 +16,7 @@ chmod +x /opt/env-vault/env-load.sh
 wget -O /opt/env-vault/env-vault.py https://raw.githubusercontent.com/orbisnull/env-vault/main/env-vault.py
 chmod +x /opt/env-vault/env-vault.py
 
-ln -sf /opt/env-vault/env-load.sh /usr/local/bin/env-load.sh
+ln -sf /opt/env-vault/env-load.sh /usr/local/bin/env-load
 
 echo "env-vault: Installation completed"
 

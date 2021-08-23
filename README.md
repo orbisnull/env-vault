@@ -15,7 +15,7 @@ bash
 
 set +o history
 
-source env-load.sh https://url_vault secret_key
+. env-load https://url_vault secret_key
 
 #other commands...
 
