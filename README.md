@@ -1,8 +1,8 @@
-This is a python scripts for get encrypted environment vars from external (http) path
+# Description
 
+This is a scripts for get and set encrypted environment vars from external (http) path encrypted yaml file.
 
-#Usage
-
+# Usage
 
 ``` bash
 bash
