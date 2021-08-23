@@ -1,4 +1,4 @@
-fs==2.4.13
-pycurl==7.43.0.2
-python-gnupg==0.4.7
-PyYAML==5.4.1
+python_gnupg
+fs
+pycurl
+PyYAML
