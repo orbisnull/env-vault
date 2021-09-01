@@ -5,21 +5,20 @@ PASSWORD=$2
 
 SOURCE="${BASH_SOURCE[0]}"
 while [ -h "$SOURCE" ]; do
-  DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+  DIR="$(cd -P "$(dirname "$SOURCE")" >/dev/null 2>&1 && pwd)"
   SOURCE="$(readlink "$SOURCE")"
   [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
 done
-DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+DIR="$(cd -P "$(dirname "$SOURCE")" >/dev/null 2>&1 && pwd)"
 
-PY_OUTPUT=`/usr/bin/env python3 $DIR/env-vault.py $1 -p $2`
+PY_OUTPUT=$(/usr/bin/env python3 $DIR/env-vault.py $URL -p $PASSWORD)
 
-if [[ $? -ne 0 ]]
-then
+if [[ $? -ne 0 ]]; then
   echo "failed env-vault"
 fi
 
 eval "${PY_OUTPUT}"
 
->&2 echo "env-load: Environment variables processed."
+echo >&2 "env-load: Environment variables processed."
 
 set -o history
