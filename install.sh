@@ -6,7 +6,7 @@ if [[ ! -e $dir ]]; then
   mkdir $dir
 fi
 
-apt-get -yq install python3-pip wget
+apt-get -yq install python3 python3-pip wget libcurl4-openssl-dev libssl-dev
 
 wget -O /opt/env-vault/requirements.txt https://raw.githubusercontent.com/orbisnull/env-vault/main/requirements.txt
 pip3 install -r /opt/env-vault/requirements.txt
